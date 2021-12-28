@@ -1,15 +1,11 @@
 import scrapy
 
-reviews_url = 'https://www.amazon.in/product-reviews/{}'
-asin_list = ['B08L5VJWCV']
+asin = 'B08L5VJWCV'
+# iphone - B08L5VJWCV, alexa - B07PFFMP9P
 
 class Reviews_spider(scrapy.Spider):
     name = 'reviews'
-
-    def start_requests(self):
-        for asin in asin_list:
-            url = reviews_url.format(asin)
-            yield scrapy.Request(url)
+    start_urls = [f'https://www.amazon.in/product-reviews/{asin}']
 
     def parse(self, response):
         for review in response.css('[data-hook="review"]'):
