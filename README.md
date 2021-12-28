@@ -13,7 +13,7 @@ I used [scrapy](https://docs.scrapy.org/en/latest/intro/overview.html) to scrape
 - Each product in amazon is identified through a code called asin which should be available on the product page
 - After finding the asin you can assign the value to the variable `asin` in the spider file, then it is as easy as running the below command in the command line to get the reviews in a json file
 
-```python
+```
 scrapy crawl reviews -o product_reviews.json
 ```
 
@@ -25,6 +25,8 @@ scrapy crawl reviews -o product_reviews.json
 - Tf-idf removal
 - Build an LDA model
 - pyLDAvis to visualize the model
+  
+![image](images/iphone_lda.png)
 
 ## Text Classification
 
@@ -34,14 +36,15 @@ I used spacy to perform *Text classification* on [Echo](https://www.amazon.in/Ec
 - Then you need to make a partial config file which you can copy paste from [spacy](https://spacy.io/usage/training) after selecting relevant components
 - Then it is a matter of running the below code in command line to get all the premade configurations in a config.cfg file, which you can choose to tweak later
 
-```python
+```
 python -m spacy init fill-config base_config.cfg config.cfg
 ```
 
 - Now you should be able to train the model with the config.cfg file
 
-```python
+```
 python -m spacy train config.cfg --output ./output  --paths.train. ./train.spacy --paths.dev ./dev.spacy
 ```
+![image](images/alexa_text_score.png)
 
 - After training you can test the model on test data to evaluate the model’s performance on unseen data
