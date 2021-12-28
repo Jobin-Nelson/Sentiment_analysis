@@ -48,3 +48,5 @@ python -m spacy train config.cfg --output ./output  --paths.train. ./train.spacy
 ![image](images/alexa_text_score.png)
 
 - After training you can test the model on test data to evaluate the model’s performance on unseen data
+
+*Tools: scrapy, spacy, gensim, pyLDAvis, scikit-learn* 
